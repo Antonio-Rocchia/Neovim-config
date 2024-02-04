@@ -7,9 +7,14 @@ return {
   },
   keys = {
     -- Quick access
-    { "<leader><space>", "<cmd>Telescope find_files<cr>", desc = "Find files" },
-    { "<leader>tg", "<cmd>Telescope grep_string<cr>", desc = "Search string under cursor" },
-    { "<leader>/", "<cmd>Telescope live_grep<cr>", desc = "Search string" },
+    { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Telescope: find files" },
+    { "<leader>fs", "<cmd>Telescope grep_string<cr>", desc = "Telescope: grep word under cursor" },
+    { "<leader>fl", "<cmd>Telescope live_grep<cr>", desc = "Telescope: live grep" },
+    { "<leader>fr", "<cmd>Telescope resume<cr>", desc = "Telescope: resume" },
+    { "<leader>fc", "<cmd>Telescope commands<cr>", desc = "Telescope: commands" },
+    { "<leader>fm", "<cmd>Telescope man_pages<cr>", desc = "Telescope: man pages" },
+    { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Telescope: buffers" },
+    { "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Telescope: keymaps" },
   },
   opts = function ()
     local actions = require("telescope.actions")
@@ -17,6 +22,13 @@ return {
       defaults = {
         prompt_prefix = " ",
         selection_caret = " ",
+        layout_strategy = "vertical",
+        layout_config = {
+          vertical = {
+            prompt_position = "bottom",
+            mirror = true,
+            },
+        },
         sorting_strategy = "ascending",
         selection_strategy = "reset",
         scroll_strategy = "limit",
@@ -45,7 +57,9 @@ return {
           --"trim", -- Remove indent from the presented line
         },
         set_env = { ["COLORTERM"] = "truecolor" },
-        file_ignore_patterns = {},
+        file_ignore_patterns = {
+          "lazy%-lock%.json",
+        },
       },
       pickers = {
         find_files = {

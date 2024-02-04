@@ -24,7 +24,7 @@ require('lazy').setup(
       { import = "plugins.extra.file-explorer" },
       { import = "plugins.extra.icons-support" },
       { import = "plugins.extra.mini" },
-      { import = "plugins.extra.which-key" },
+      -- { import = "plugins.extra.which-key" },
     },
     performance = {
       rtp = {
