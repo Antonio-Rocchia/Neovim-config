@@ -27,7 +27,13 @@ return {
     local path = require("lib.path")
     return {
       { "<leader>e", function() oil.open(vim.loop.cwd()) end, { desc = "Explorer: open root" }},
-      { "<leader>E", function() oil.open(path.get_buf_parent()) end, { desc = "Explorer: open relative to current buffer" }},
+      { "<leader>E", function()
+          if vim.api.nvim_buf_get_name(0):sub(1, 3) == "oil" then
+            return
+          end
+          oil.open(path.get_buf_parent())
+        end,
+        { desc = "Explorer: open relative to current buffer" }},
     }
   end,
 }
