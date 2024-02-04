@@ -1,9 +1,9 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    { "folke/neodev.nvim",                 opts = {} },
-    { "j-hui/fidget.nvim",                 opts = {} },
-    { "williamboman/mason.nvim",           opts = {} },
+    { "folke/neodev.nvim", opts = {} },
+    { "j-hui/fidget.nvim", opts = {} },
+    { "williamboman/mason.nvim", opts = {} },
     { "williamboman/mason-lspconfig.nvim", opts = { automatic_installation = false } },
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-nvim-lsp",
@@ -31,27 +31,28 @@ return {
       -- Each entry should be a key value pair "server-name" = function()
       -- The function should be the lsp handler that is passed to mason_lspconfig
       -- this function is typically the documentation for the desired handler
-    }
+    },
   },
   config = function(_, opts)
     local capabilities = vim.tbl_deep_extend(
       "force",
       {},
       vim.lsp.protocol.make_client_capabilities(),
-      require('cmp_nvim_lsp').default_capabilities())
+      require("cmp_nvim_lsp").default_capabilities()
+    )
 
-    local mason_lspconfig = require 'mason-lspconfig'
+    local mason_lspconfig = require("mason-lspconfig")
 
-    mason_lspconfig.setup {
+    mason_lspconfig.setup({
       ensure_installed = vim.tbl_keys(opts.servers),
-    }
+    })
 
     local mason_handlers = {
       function(server_name) -- Default handler
-        require('lspconfig')[server_name].setup {
+        require("lspconfig")[server_name].setup({
           capabilities = capabilities,
           settings = opts.servers[server_name],
-        }
+        })
       end,
     }
     -- Add additional handler for specific languages
@@ -78,44 +79,43 @@ return {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
       },
-      mapping = cmp.mapping.preset.insert {
-        ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-        ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete {},
-        ['<CR>'] = cmp.mapping.confirm {
+      mapping = cmp.mapping.preset.insert({
+        ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+        ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+        ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-Space>"] = cmp.mapping.complete({}),
+        ["<CR>"] = cmp.mapping.confirm({
           behavior = cmp.ConfirmBehavior.Replace,
           select = true,
-        },
-      },
+        }),
+      }),
       sources = {
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' },
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
       },
     })
 
     -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-    cmp.setup.cmdline({ '/', '?' }, {
+    cmp.setup.cmdline({ "/", "?" }, {
       mapping = cmp.mapping.preset.cmdline(),
-      preselect = 'item',
+      preselect = "item",
       sources = {
-        { name = 'buffer' }
-      }
+        { name = "buffer" },
+      },
     })
-
 
     -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-    cmp.setup.cmdline(':', {
+    cmp.setup.cmdline(":", {
       mapping = cmp.mapping.preset.cmdline(),
-      preselect = 'item',
+      preselect = "item",
       sources = cmp.config.sources({
-        { name = 'path' }
+        { name = "path" },
       }, {
-        { name = 'cmdline' }
-      })
+        { name = "cmdline" },
+      }),
     })
-  end
+  end,
 }

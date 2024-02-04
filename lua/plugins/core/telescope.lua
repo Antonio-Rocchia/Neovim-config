@@ -1,9 +1,12 @@
 return {
-  'nvim-telescope/telescope.nvim',
-  tag = '0.1.5',
+  "nvim-telescope/telescope.nvim",
+  tag = "0.1.5",
   dependencies = {
-    'nvim-lua/plenary.nvim',
-    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+    "nvim-lua/plenary.nvim",
+    {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+    },
   },
   keys = {
     -- Quick access
@@ -16,7 +19,7 @@ return {
     { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Telescope: buffers" },
     { "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Telescope: keymaps" },
   },
-  opts = function ()
+  opts = function()
     local actions = require("telescope.actions")
     return {
       defaults = {
@@ -27,23 +30,30 @@ return {
           vertical = {
             prompt_position = "bottom",
             mirror = true,
-            },
+          },
         },
         sorting_strategy = "ascending",
         selection_strategy = "reset",
         scroll_strategy = "limit",
         mappings = {
-          -- Keep insert mode simple so you don't need to memorize two keybinds for the same functionality
           i = {
             ["<C-j>"] = actions.move_selection_next,
             ["<C-k>"] = actions.move_selection_previous,
             ["<CR>"] = actions.select_default,
             ["<C-?>"] = actions.which_key,
             ["<Esc>"] = actions.close,
+            ["<C-q>"] = actions.send_to_qflist,
+            ["<M-q>"] = actions.send_selected_to_qflist,
+            ["<C-e>"] = actions.send_to_loclist,
+            ["<M-e>"] = actions.send_selected_to_loclist,
           },
           n = {
             ["<C-j>"] = actions.move_selection_next,
             ["<C-k>"] = actions.move_selection_previous,
+            ["<C-q>"] = actions.send_to_qflist,
+            ["<M-q>"] = actions.send_selected_to_qflist,
+            ["<C-e>"] = actions.send_to_loclist,
+            ["<M-e>"] = actions.send_selected_to_loclist,
           },
         },
         vimgrep_arguments = {
@@ -64,12 +74,12 @@ return {
       pickers = {
         find_files = {
           follow = true,
-        }
+        },
       },
     }
   end,
   config = function(_, opts)
-    require('telescope').setup(opts)
-    require('telescope').load_extension('fzf')
-  end
+    require("telescope").setup(opts)
+    require("telescope").load_extension("fzf")
+  end,
 }
