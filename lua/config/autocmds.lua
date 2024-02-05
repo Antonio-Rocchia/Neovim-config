@@ -16,29 +16,24 @@ vim.api.nvim_create_autocmd("VimLeave", {
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("UserLspConfig", {}),
   callback = function(ev)
-    print("Ricorda di reimpostare i keybinds")
-    -- Buffer local mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
-    local opts = { buffer = ev.buf }
-    -- vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-    -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    -- vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-    -- vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-    -- vim.keymap.set('n', '<C-K>', vim.lsp.buf.signature_help, opts)
-    -- vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
-    -- vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
-    -- vim.keymap.set('n', '<space>wl', function()
-    --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    -- end, opts)
-    -- vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-    -- vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-    -- vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-    -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-    -- vim.keymap.set('n', '<space>f', function()
-    --   vim.lsp.buf.format { async = true }
-    -- end, opts)
+    -- The most used functions are:
+    -- - |vim.lsp.buf.hover()|
+    -- - |vim.lsp.buf.format()|
+    -- - |vim.lsp.buf.references()|
+    -- - |vim.lsp.buf.implementation()|
+    -- - |vim.lsp.buf.code_action()|
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Code: Hover documentation", buffer = ev.buf })
+    vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, { desc = "Code: Signature documentation", buffer = ev.buf })
+    -- Formatting is handled with conform.nvim
+    vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, { desc = "Code: run code action", buffer = ev.buf })
+    vim.keymap.set("n", "<space>cr", vim.lsp.buf.rename, { desc = "Code: rename symbol", buffer = ev.buf })
+    vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Code: references to symbol under cursor in quickfix", buffer = ev.buf })
+    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "Code: implementation for symbol under cursor in quickfix", buffer = ev.buf })
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Code: go to definition", buffer = ev.buf })
+    vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { desc = "Code: go to type definition", buffer = ev.buf })
   end,
 })

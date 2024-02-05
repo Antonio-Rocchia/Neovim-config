@@ -9,6 +9,7 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
+    -- "hrsh7th/cmp-nvim-lsp-signature-help",
     "hrsh7th/cmp-cmdline",
     "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip",
@@ -34,12 +35,7 @@ return {
     },
   },
   config = function(_, opts)
-    local capabilities = vim.tbl_deep_extend(
-      "force",
-      {},
-      vim.lsp.protocol.make_client_capabilities(),
-      require("cmp_nvim_lsp").default_capabilities()
-    )
+    local capabilities = vim.tbl_deep_extend("force", {}, vim.lsp.protocol.make_client_capabilities(), require("cmp_nvim_lsp").default_capabilities())
 
     local mason_lspconfig = require("mason-lspconfig")
 
@@ -95,6 +91,7 @@ return {
         { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
+        -- { name = "nvim_lsp_signature_help" },
       },
     })
 
