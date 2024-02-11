@@ -20,8 +20,7 @@ require("lazy").setup({
     { import = "plugins.core" },
     { import = "plugins.theme" },
     -- extra
-    { import = "plugins.extra.file-explorer" },
-    { import = "plugins.extra.icons-support" },
+    { import = "plugins.extra.harpoon" },
     { import = "plugins.extra.mini" },
     { import = "plugins.extra.trouble" },
   },

@@ -1,8 +1,9 @@
 return {
-  'stevearc/conform.nvim',
+  "stevearc/conform.nvim",
   opts = {
     formatters_by_ft = {
       lua = { "stylua" },
+      go = { "gofmt" },
     },
     format_on_save = {
       -- These options will be passed to conform.format()
