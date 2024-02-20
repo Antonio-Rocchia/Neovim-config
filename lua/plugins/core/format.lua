@@ -4,6 +4,8 @@ return {
     formatters_by_ft = {
       lua = { "stylua" },
       go = { "gofmt" },
+      python = { "isort", "black" },
+      json = { "jq" },
     },
     format_on_save = {
       -- These options will be passed to conform.format()

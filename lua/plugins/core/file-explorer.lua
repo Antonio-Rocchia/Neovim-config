@@ -31,7 +31,7 @@ return {
         function()
           oil.open(vim.loop.cwd())
         end,
-        { desc = "Explorer: open root" },
+        desc = "Explorer: open root",
       },
       {
         "<leader>E",
@@ -41,7 +41,7 @@ return {
           end
           oil.open(path.get_buf_parent())
         end,
-        { desc = "Explorer: open relative to current buffer" },
+        desc = "Explorer: open relative to current buffer",
       },
     }
   end,

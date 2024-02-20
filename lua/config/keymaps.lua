@@ -22,8 +22,8 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Keep cursor in the middle whil
 
 -- read :h vim.diagnostic
 vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Code: open diagnostic float" })
-vim.keymap.set("n", "[d", vim.diagnostic.goto_next, { desc = "Next: diagnostic" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, { desc = "Prev: diagnostic" })
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next: diagnostic" })
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Prev: diagnostic" })
 
 -- Move around the quickfix/location list
 vim.keymap.set("n", "]q", "<cmd>cnext<CR>zz", { desc = "Next: quickfix" })
