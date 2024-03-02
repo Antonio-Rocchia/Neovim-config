@@ -21,6 +21,19 @@ return {
       ["gt"] = "actions.open_terminal",
       ["gx"] = "actions.open_external",
     },
+    view_options = {
+      is_hidden_file = function(name, bufnr)
+        if vim.startswith(name, ".") then
+          return true
+        end
+        if name == "__pycache__" then
+          return true
+        end
+        if vim.endswith(name, ".egg-info") then
+          return true
+        end
+      end,
+    },
   },
   keys = function()
     local oil = require("oil")

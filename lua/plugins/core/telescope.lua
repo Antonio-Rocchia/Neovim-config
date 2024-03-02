@@ -11,7 +11,8 @@ return {
   keys = {
     -- Quick access
     { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Telescope: find files" },
-    { "<leader>fs", "<cmd>Telescope grep_string<cr>", desc = "Telescope: grep word under cursor" },
+    { "<leader>fg", "<cmd>Telescope git_files<cr>", desc = "Telescope: find files" },
+    { "<leader>fs", "<cmd>Telescope grep_string<cr>", mode = { "n", "v" }, desc = "Telescope: grep word under cursor" },
     { "<leader>fl", "<cmd>Telescope live_grep<cr>", desc = "Telescope: live grep" },
     { "<leader>fr", "<cmd>Telescope resume<cr>", desc = "Telescope: resume" },
     { "<leader>fc", "<cmd>Telescope commands<cr>", desc = "Telescope: commands" },
