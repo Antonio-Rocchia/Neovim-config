@@ -23,8 +23,8 @@ require("lazy").setup({
     { import = "plugins.extra.harpoon" },
     { import = "plugins.extra.mini" },
     { import = "plugins.extra.trouble" },
-    { import = "plugins.extra.neogen" },
     { import = "plugins.extra.markdown" },
+    { import = "plugins.extra.zen" },
   },
   performance = {
     rtp = {
@@ -43,4 +43,4 @@ require("lazy").setup({
   },
 })
 
-vim.cmd.colorscheme("tokyonight-moon")
+vim.cmd.colorscheme("tokyonight-night")
