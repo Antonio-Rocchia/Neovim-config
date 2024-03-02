@@ -9,7 +9,6 @@ return {
     vim.fn["mkdp#util#install"]()
   end,
   config = function()
-    vim.g.mkdp_refresh_slow = 1
     -- vim.cmd([[
     --   function OpenMarkdownPreview (url)
     --     execute "silent ! chromium --new-window --app=" . a:url
