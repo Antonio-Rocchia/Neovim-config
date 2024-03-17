@@ -3,6 +3,7 @@ return {
   opts = {
     linters_by_ft = {
       go = { "golangcilint" },
+      sh = { "shellcheck" },
     },
   },
   config = function(_, opts)

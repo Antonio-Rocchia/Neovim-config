@@ -18,11 +18,11 @@ return {
 
     vim.keymap.set("n", "<leader>cnc", function()
       neogen.generate({ type = "class" })
-    end, { desc = "Code: generate func annotation" })
+    end, { desc = "Code: generate class annotation" })
 
     vim.keymap.set("n", "<leader>cnf", function()
       neogen.generate({ type = "file" })
-    end, { desc = "Code: generate func annotation" })
+    end, { desc = "Code: generate file annotation" })
 
     vim.keymap.set("n", "<leader>cnt", function()
       neogen.generate({ type = "type" })

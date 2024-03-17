@@ -5,6 +5,7 @@ return {
       lua = { "stylua" },
       go = { "gofmt" },
       python = { "isort", "black" },
+      sh = { "shellcheck" },
       json = { "jq" },
     },
     format_on_save = {
