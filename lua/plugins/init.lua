@@ -25,6 +25,7 @@ require("lazy").setup({
     { import = "plugins.extra.trouble" },
     { import = "plugins.extra.markdown" },
     { import = "plugins.extra.zen" },
+    { import = "plugins.extra.neogen" },
   },
   performance = {
     rtp = {
