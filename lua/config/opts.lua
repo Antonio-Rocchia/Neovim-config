@@ -19,8 +19,8 @@ opt.clipboard = "unnamedplus"
 
 -- Editing
 opt.expandtab = true -- space instead of tab
-opt.tabstop = 2 -- visually how many spaces represent a tab
-opt.shiftwidth = 0 -- when 0 is equal to tabstop
+opt.tabstop = 2      -- visually how many spaces represent a tab
+opt.shiftwidth = 0   -- when 0 is equal to tabstop
 opt.wrap = false
 opt.smartindent = true
 
@@ -58,4 +58,8 @@ vim.diagnostic.config({
     header = "",
     prefix = "",
   },
+})
+
+vim.filetype.add({
+  pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
 })
