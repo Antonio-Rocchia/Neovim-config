@@ -5,20 +5,21 @@ return {
     "nvim-lua/plenary.nvim",
     {
       "nvim-telescope/telescope-fzf-native.nvim",
-      build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+      build =
+      "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
     },
   },
   keys = {
     -- Quick access
-    { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Telescope: find files" },
-    { "<leader>fg", "<cmd>Telescope git_files<cr>", desc = "Telescope: find files" },
-    { "<leader>fs", "<cmd>Telescope grep_string<cr>", mode = { "n", "v" }, desc = "Telescope: grep word under cursor" },
-    { "<leader>fl", "<cmd>Telescope live_grep<cr>", desc = "Telescope: live grep" },
-    { "<leader>fr", "<cmd>Telescope resume<cr>", desc = "Telescope: resume" },
-    { "<leader>fc", "<cmd>Telescope commands<cr>", desc = "Telescope: commands" },
-    { "<leader>fm", "<cmd>Telescope man_pages<cr>", desc = "Telescope: man pages" },
-    { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Telescope: buffers" },
-    { "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Telescope: keymaps" },
+    { "<leader>ff", "<cmd>Telescope find_files<cr>",  desc = "Telescope: find files" },
+    { "<leader>fg", "<cmd>Telescope git_files<cr>",   desc = "Telescope: find files" },
+    { "<leader>fs", "<cmd>Telescope grep_string<cr>", mode = { "n", "v" },           desc = "Telescope: grep word under cursor" },
+    { "<leader>fl", "<cmd>Telescope live_grep<cr>",   desc = "Telescope: live grep" },
+    { "<leader>fr", "<cmd>Telescope resume<cr>",      desc = "Telescope: resume" },
+    { "<leader>fc", "<cmd>Telescope commands<cr>",    desc = "Telescope: commands" },
+    { "<leader>fm", "<cmd>Telescope man_pages<cr>",   desc = "Telescope: man pages" },
+    { "<leader>fb", "<cmd>Telescope buffers<cr>",     desc = "Telescope: buffers" },
+    { "<leader>fk", "<cmd>Telescope keymaps<cr>",     desc = "Telescope: keymaps" },
   },
   opts = function()
     local actions = require("telescope.actions")
