@@ -4,8 +4,8 @@ This is my neovim configuration made with lua.
 ## Version 2024.1
 
 ### Wants
-[] Get better at using marks and macros
-[] Diff integration
+- [] Get better at using marks and macros
+- [] Diff integration
 
 ### Removed
 - Git integration with Neogit
