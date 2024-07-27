@@ -46,6 +46,10 @@ return {
       vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = 'Find: Resume' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find buffers' })
 
+      vim.keymap.set('n', '<leader>fm', function()
+        builtin.man_pages { sections = { 'ALL' } }
+      end, { desc = 'Find: Resume' })
+
       vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Find: by Grep' })
       vim.keymap.set('n', '<leader>f/', function()
         builtin.live_grep {

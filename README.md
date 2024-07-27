@@ -13,6 +13,7 @@ This version is adapted from [Kickstart.nvim](https://github.com/nvim-lua/kickst
 - [ ] Get better at using marks and macros
 - [ ] Diff integration
     - I tried it when I used neogit and its very useful
+- [ ] Global options for some telescope pickers (eg. man_pages({ sections = { 'ALL' }}))
 
 ### Removed
 - Git integration with Neogit
