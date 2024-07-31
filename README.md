@@ -14,6 +14,7 @@ This version is adapted from [Kickstart.nvim](https://github.com/nvim-lua/kickst
 - [ ] Diff integration
     - I tried it when I used neogit and its very useful
 - [ ] Global options for some telescope pickers (eg. man_pages({ sections = { 'ALL' }}))
+- [ ] A keymap to paste from "0 register
 
 ### Removed
 - Git integration with Neogit
