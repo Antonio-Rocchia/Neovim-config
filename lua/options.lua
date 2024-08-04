@@ -1,6 +1,10 @@
 -- [[ Setting options ]]
 --  For more options, you can see `:help option-list`
 
+-- Indenting rules
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 2
+
 -- Make line numbers default
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
